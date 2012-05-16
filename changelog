@@ -1,5 +1,18 @@
-moos-ivp (12.2-0tes1~precise1) precise; urgency=low
+moos-ivp (12-2+svn4432-0tes1~precise1) precise; urgency=low
+
+  * Ubuntu build
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Fri, 11 May 2012 10:07:45 -0400
+
+moos-ivp (12-2+svn4432-0tes1~squeeze1) squeeze; urgency=low
+
+  * For squeeze
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Thu, 10 May 2012 10:23:26 -0400
+
+moos-ivp (12-2+svn4432-0tes1~precise1) precise; urgency=low
 
   * Initial release
+  * -
 
- -- Toby Schneider <tes.aubergine@gmail.com>  Mon, 07 May 2012 22:30:26 -0400
+ -- Toby Schneider <tes.aubergine@gmail.com>  Thu, 10 May 2012 10:23:25 -0400
