@@ -3,7 +3,8 @@ Priority: extra
 Maintainer: Toby Schneider <tes.aubergine@gmail.com>
 Build-Depends: cdbs, debhelper (>= 8.0.0),
                cmake (>= 2.6.0),
-               libglut3-dev, 
+	       libxinerama-dev,
+	       freeglut3-dev | libglut3-dev, 
                libx11-dev, 
                libxft-dev, 
                libtiff-dev,
@@ -17,7 +18,8 @@ Package: libmoos-ivp-dev
 Section: libdevel
 Architecture: any
 Depends: libmoos-ivp (= ${binary:Version}), 
-         libglut3-dev, 
+	 libxinerama-dev,
+         freeglut3-dev | libglut3-dev, 
          libx11-dev, 
          libxft-dev, 
          libtiff-dev,

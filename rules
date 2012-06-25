@@ -7,3 +7,4 @@ include /usr/share/cdbs/1/class/cmake.mk
 # Add here any variable or target overrides you need.
 
 DEB_SRCDIR=ivp/src
+CXXFLAGS=-Wno-error=format-security

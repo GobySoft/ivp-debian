@@ -1,3 +1,9 @@
+moos-ivp (12-2+svn4432-0tes1~precise2) precise; urgency=low
+
+  * Patches for precise
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Wed, 16 May 2012 18:07:30 -0400
+
 moos-ivp (12-2+svn4432-0tes1~precise1) precise; urgency=low
 
   * Ubuntu build
