@@ -1,4 +1,10 @@
-moos-ivp (12-2+svn4593-0tes1~squeeze1) squeeze; urgency=low
+moos-ivp (12-2+svn4593-0tes1~lucid2) lucid; urgency=low
+
+  * Downgraded required debhelper version to allow building for lucid
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Fri, 06 Jul 2012 08:49:52 -0400
+
+moos-ivp (12-2+svn4593-0tes1~lucid1) lucid; urgency=low
 
   * New upstream version
 
