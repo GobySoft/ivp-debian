@@ -3,7 +3,6 @@
 /usr/bin/uFldNodeBroker
 /usr/bin/pNodeReporter
 /usr/bin/pXRelay
-/usr/bin/pBinaryTest
 /usr/bin/uXMS
 /usr/bin/pHelmIvP
 /usr/bin/pMarinePID
@@ -25,7 +24,6 @@
 /usr/bin/uFldHazardMetric
 /usr/bin/uTermCommand
 /usr/bin/pEchoVar
-/usr/bin/uMOOSClient
 /usr/bin/uTimerScript
 /usr/bin/uSimMarine
 /usr/bin/uFldNodeComms
