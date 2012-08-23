@@ -1,5 +1,17 @@
 #!/usr/bin/make -f
 
+UPSTREAM_LAST_RELEASE = 12-2
+UPSTREAM_REVISION_SPEC = 
+UPSTREAM_REPOSITORY = https://oceanai.mit.edu/svn/moos-ivp-aro/trunk
+UPSTREAM_REVISION := $(shell svn info $(UPSTREAM_REVISION_SPEC) $(UPSTREAM_REPOSITORY) | grep Revision | sed 's/Revision: //')
+UPSTREAM_VERSION := $(UPSTREAM_LAST_RELEASE)+svn$(UPSTREAM_REVISION)
+
+get-orig-source:
+	svn export -q $(UPSTREAM_REVISION_SPEC) $(UPSTREAM_REPOSITORY) moos-ivp-$(UPSTREAM_VERSION)
+	tar cfz moos-ivp_$(UPSTREAM_VERSION).orig.tar.gz moos-ivp-$(UPSTREAM_VERSION)
+	rm -rf moos-ivp-$(UPSTREAM_VERSION)
+
+
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/class/cmake.mk
 
@@ -8,3 +20,4 @@ include /usr/share/cdbs/1/class/cmake.mk
 
 DEB_SRCDIR=ivp/src
 CXXFLAGS=-Wno-error=format-security
+DEB_BUILD_PARALLEL = true
