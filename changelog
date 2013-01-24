@@ -4,6 +4,12 @@ moos-ivp (12-2+svn4841-0mbat1~squeeze1) squeeze; urgency=low
 
  -- LAMSS <lamss@mit.edu>  Thu, 23 Aug 2012 14:44:18 +0000
 
+moos-ivp (12-2+svn4593-0tes1~lucid3) lucid; urgency=low
+
+  * Changed compat to 7
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Fri, 06 Jul 2012 10:32:14 -0400
+
 moos-ivp (12-2+svn4593-0tes1~lucid2) lucid; urgency=low
 
   * Downgraded required debhelper version to allow building for lucid
