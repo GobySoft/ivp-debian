@@ -1,3 +1,9 @@
+moos-ivp (12-2+svn5448-0tes1~oneiric1) oneiric; urgency=low
+
+  * New upstream revision based on "moos-ivp-5151" branch.
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Wed, 30 Jan 2013 16:18:17 -0500
+
 moos-ivp (12-2+svn4841-0mbat1~squeeze1) squeeze; urgency=low
 
   * New upstream revision for MBAT 2012 use.

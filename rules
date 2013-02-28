@@ -2,7 +2,7 @@
 
 UPSTREAM_LAST_RELEASE = 12-2
 UPSTREAM_REVISION_SPEC = 
-UPSTREAM_REPOSITORY = https://oceanai.mit.edu/svn/moos-ivp-aro/trunk
+UPSTREAM_REPOSITORY = svn+ssh://tes@oceanai.mit.edu/home/svn/repos/moos-ivp/branches/moos-ivp-5151
 UPSTREAM_REVISION := $(shell svn info $(UPSTREAM_REVISION_SPEC) $(UPSTREAM_REPOSITORY) | grep Revision | sed 's/Revision: //')
 UPSTREAM_VERSION := $(UPSTREAM_LAST_RELEASE)+svn$(UPSTREAM_REVISION)
 
