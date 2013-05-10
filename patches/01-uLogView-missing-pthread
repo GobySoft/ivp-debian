@@ -1,7 +1,5 @@
-Index: moos-ivp-12-2+svn4432/ivp/src/uLogViewHelm/CMakeLists.txt
-===================================================================
---- moos-ivp-12-2+svn4432.orig/ivp/src/uLogViewHelm/CMakeLists.txt	2012-05-08 21:50:38.668000000 -0400
-+++ moos-ivp-12-2+svn4432/ivp/src/uLogViewHelm/CMakeLists.txt	2012-05-16 17:42:21.778818742 -0400
+--- a/ivp/src/uLogViewHelm/CMakeLists.txt
++++ b/ivp/src/uLogViewHelm/CMakeLists.txt
 @@ -40,7 +40,10 @@
     fltk 
     fltk_gl 
@@ -14,3 +12,33 @@ Index: moos-ivp-12-2+svn4432/ivp/src/uLogViewHelm/CMakeLists.txt
  
  # http://developer.apple.com/qa/qa2007/qa1567.html
  IF (${APPLE})
+--- a/ivp/src/pMarineViewer/CMakeLists.txt
++++ b/ivp/src/pMarineViewer/CMakeLists.txt
+@@ -22,6 +22,7 @@
+ Target_LINK_LIBRARIES(pMarineViewer         
+    MOOS
+    MOOSGen
++   pthread
+    marineview
+    MOOSUtility
+    genutil
+--- a/ivp/src/uLogView/CMakeLists.txt
++++ b/ivp/src/uLogView/CMakeLists.txt
+@@ -29,6 +29,7 @@
+ Target_LINK_LIBRARIES(uLogView         
+    MOOS
+    MOOSGen
++   pthread
+    ulogview
+    marineview
+    contacts
+--- a/ivp/src/uLogViewIPF/CMakeLists.txt
++++ b/ivp/src/uLogViewIPF/CMakeLists.txt
+@@ -27,6 +27,7 @@
+ Target_LINK_LIBRARIES(uLogViewIPF         
+    MOOS
+    MOOSGen
++   pthread
+    marineview
+    ipfview
+    contacts

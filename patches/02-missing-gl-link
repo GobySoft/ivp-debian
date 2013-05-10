@@ -1,0 +1,148 @@
+--- a/ivp/src/app_alogview/CMakeLists.txt
++++ b/ivp/src/app_alogview/CMakeLists.txt
+@@ -42,7 +42,8 @@
+    
+    # Standard libraries used by this project's FLTK apps...
+    fltk 
+-   fltk_gl 
++   fltk_gl
++   GL
+    dl
+    tiff)
+  
+--- a/ivp/src/app_cpaview/CMakeLists.txt
++++ b/ivp/src/app_cpaview/CMakeLists.txt
+@@ -30,7 +30,8 @@
+   mbutil
+   ivpcore
+   fltk 
+-  fltk_gl 
++  fltk_gl
++   GL
+   dl
+   tiff
+   ${SYSTEM_LIBS}
+--- a/ivp/src/app_currview/CMakeLists.txt
++++ b/ivp/src/app_currview/CMakeLists.txt
+@@ -35,7 +35,8 @@
+   
+   # Standard libraries used by this project's FLTK apps...
+   fltk 
+-  fltk_gl 
++  fltk_gl
++   GL
+   dl
+   tiff)
+ 
+--- a/ivp/src/app_ffview/CMakeLists.txt
++++ b/ivp/src/app_ffview/CMakeLists.txt
+@@ -30,6 +30,7 @@
+      # Standard libraries used by this project's FLTK apps...
+      fltk 
+      fltk_gl
++   GL
+ ) 
+ 
+ # http://developer.apple.com/qa/qa2007/qa1567.html
+--- a/ivp/src/app_geoview/CMakeLists.txt
++++ b/ivp/src/app_geoview/CMakeLists.txt
+@@ -36,7 +36,8 @@
+   
+   # Standard libraries used by this project's FLTK apps...
+   fltk 
+-  fltk_gl 
++  fltk_gl
++   GL
+   dl
+   tiff)
+ 
+--- a/ivp/src/app_gzaicview/CMakeLists.txt
++++ b/ivp/src/app_gzaicview/CMakeLists.txt
+@@ -26,6 +26,7 @@
+   ivpcore
+   fltk 
+   fltk_gl
++   GL
+   dl
+ )
+ 
+--- a/ivp/src/app_ivpcheck/CMakeLists.txt
++++ b/ivp/src/app_ivpcheck/CMakeLists.txt
+@@ -39,6 +39,7 @@
+   logutils
+   fltk 
+   fltk_gl
++   GL
+   dl
+   ${SYSTEM_LIBS})
+ 
+--- a/ivp/src/app_vzaicview/CMakeLists.txt
++++ b/ivp/src/app_vzaicview/CMakeLists.txt
+@@ -27,7 +27,8 @@
+    mbutil
+       # Standard libraries used by this project's FLTK apps...
+    fltk 
+-   fltk_gl 
++   fltk_gl
++   GL
+    dl
+    tiff)
+ 
+--- a/ivp/src/pMarineViewer/CMakeLists.txt
++++ b/ivp/src/pMarineViewer/CMakeLists.txt
+@@ -31,7 +31,8 @@
+    mbutil
+       # Standard libraries used by this project's FLTK apps...
+    fltk 
+-   fltk_gl 
++   fltk_gl
++   GL
+    dl
+    tiff)
+ 
+--- a/ivp/src/uFunctionVis/CMakeLists.txt
++++ b/ivp/src/uFunctionVis/CMakeLists.txt
+@@ -39,6 +39,7 @@
+    genutil
+    fltk 
+    fltk_gl
++   GL
+    dl
+    ${SYSTEM_LIBS})
+ 
+--- a/ivp/src/uLogView/CMakeLists.txt
++++ b/ivp/src/uLogView/CMakeLists.txt
+@@ -41,7 +41,8 @@
+    mbutil
+       # Standard libraries used by this project's FLTK apps...
+    fltk 
+-   fltk_gl 
++   fltk_gl
++   GL
+    dl
+    tiff)
+ 
+--- a/ivp/src/uLogViewHelm/CMakeLists.txt
++++ b/ivp/src/uLogViewHelm/CMakeLists.txt
+@@ -38,7 +38,8 @@
+    mbutil
+       # Standard libraries used by this project's FLTK apps...
+    fltk 
+-   fltk_gl 
++   fltk_gl
++   GL
+    dl
+    tiff
+    pthread
+--- a/ivp/src/uLogViewIPF/CMakeLists.txt
++++ b/ivp/src/uLogViewIPF/CMakeLists.txt
+@@ -40,7 +40,8 @@
+    mbutil
+       # Standard libraries used by this project's FLTK apps...
+    fltk 
+-   fltk_gl 
++   fltk_gl
++   GL
+    dl
+    tiff)
+ 

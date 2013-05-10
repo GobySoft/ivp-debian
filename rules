@@ -3,10 +3,11 @@
 UPSTREAM_LAST_RELEASE = 12-2
 UPSTREAM_REVISION_SPEC = 
 UPSTREAM_REPOSITORY = svn+ssh://tes@oceanai.mit.edu/home/svn/repos/moos-ivp/branches/moos-ivp-5151
-UPSTREAM_REVISION := $(shell svn info $(UPSTREAM_REVISION_SPEC) $(UPSTREAM_REPOSITORY) | grep Revision | sed 's/Revision: //')
-UPSTREAM_VERSION := $(UPSTREAM_LAST_RELEASE)+svn$(UPSTREAM_REVISION)
 
 get-orig-source:
+	$(eval UPSTREAM_REVISION := $(shell svn info $(UPSTREAM_REVISION_SPEC) $(UPSTREAM_REPOSITORY) | grep Revision | sed 's/Revision: //'))
+	$(eval UPSTREAM_VERSION := $(UPSTREAM_LAST_RELEASE)+svn$(UPSTREAM_REVISION))
+
 	svn export -q $(UPSTREAM_REVISION_SPEC) $(UPSTREAM_REPOSITORY) moos-ivp-$(UPSTREAM_VERSION)
 	tar cfz moos-ivp_$(UPSTREAM_VERSION).orig.tar.gz moos-ivp-$(UPSTREAM_VERSION)
 	rm -rf moos-ivp-$(UPSTREAM_VERSION)

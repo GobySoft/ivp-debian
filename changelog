@@ -1,3 +1,27 @@
+moos-ivp (12-2+svn5787-0tes1~raring4) raring; urgency=low
+
+  * Also needed some pthread links for i386
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Wed, 08 May 2013 22:20:40 -0400
+
+moos-ivp (12-2+svn5787-0tes1~raring3) raring; urgency=low
+
+  * Another attempt at fixing missing GL link library for raring
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Wed, 08 May 2013 18:55:55 -0400
+
+moos-ivp (12-2+svn5787-0tes1~raring2) raring; urgency=low
+
+  * Fixed missing link library for GL in raring
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Wed, 08 May 2013 17:54:22 -0400
+
+moos-ivp (12-2+svn5787-0tes1~raring1) raring; urgency=low
+
+  * Upstream release from "moos-ivp-5151" to fix IVPHELM_STATE=PARK bug.
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Wed, 08 May 2013 13:36:27 -0400
+
 moos-ivp (12-2+svn5448-0tes1~squeeze1) squeeze; urgency=low
 
   * New upstream revision based on "moos-ivp-5151" branch.
