@@ -1,0 +1,26 @@
+--- a/ivp/src/app_bngview/CMakeLists.txt
++++ b/ivp/src/app_bngview/CMakeLists.txt
+@@ -27,7 +27,6 @@
+ ENDIF (${APPLE})
+ 
+ TARGET_LINK_LIBRARIES(bngview 
+-  ${MOOSGeodesy_LIBRARIES}
+   helmivp
+   behaviors
+   behaviors-marine
+@@ -37,6 +36,7 @@
+   genutil
+   logic
+   geometry
++  ${MOOSGeodesy_LIBRARIES}
+   contacts
+   ipfview
+   ivpbuild
+@@ -47,6 +47,7 @@
+   dl
+   tiff
+   ${SYSTEM_LIBS}
++  GL
+ )
+   
+ # http://developer.apple.com/qa/qa2007/qa1567.html

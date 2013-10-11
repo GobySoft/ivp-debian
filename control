@@ -8,8 +8,9 @@ Build-Depends: cdbs, debhelper (>= 7.0.50~),
                libx11-dev, 
                libxft-dev, 
                libtiff-dev,
-	       libfltk1.3-dev | libfltk1.1-dev,
-               moos (>= 0.2376~)
+               libfltk1.3-dev | libfltk1.1-dev,
+               libmoos10-dev,
+               libproj-dev
 Standards-Version: 3.9.3
 Section: science
 Homepage: http://moos-ivp.org
@@ -24,7 +25,8 @@ Depends: libmoos-ivp (= ${binary:Version}),
          libxft-dev, 
          libtiff-dev,
 	 libfltk1.3-dev | libfltk1.1-dev,
-         moos (>= 0.2376~)
+         libmoos10-dev,
+         libproj-dev
 Description: Developers' package for the libraries included with the MOOS-IvP multi-objective decision engine (and related tools) for autonomous marine vehicles.
  MOOS-IvP includes software for high-level control (decision-making) on robotic platforms (primarily marine). IvP stands for "Interval Programming" which is a mathematical programming model for multi-objective optimization. In the IvP model each objective function is a piecewise linear construct where each piece is an {\em   interval} in N-Space.  The IvP model and algorithms are included in the IvP Helm software as the method for representing and reconciling the output of helm behaviors. 
  This package provides the developer headers for the libraries in MOOS-IvP.
@@ -38,7 +40,8 @@ Description: Libraries included with the MOOS-IvP multi-objective decision engin
  This package provides the libraries in MOOS-IvP.
 
 Package: moos-ivp-gui
-Depends: ${shlibs:Depends}, ${misc:Depends}, moos (>= 0.2376~)
+Depends: ${shlibs:Depends}, ${misc:Depends}, moosdb10
+Recommends: moos10-essential
 Section: science
 Architecture: any
 Description: Graphical tools for the MOOS-IvP multi-objective decision engine.
@@ -46,7 +49,8 @@ Description: Graphical tools for the MOOS-IvP multi-objective decision engine.
  This package provides the graphical applications in MOOS-IvP (e.g. pMarineViewer).
 
 Package: moos-ivp-apps
-Depends: ${shlibs:Depends}, ${misc:Depends}, moos (>= 0.2376~)
+Depends: ${shlibs:Depends}, ${misc:Depends}, moosdb10
+Recommends: moos10-essential
 Section: science
 Architecture: any
 Description: The MOOS-IvP multi-objective decision engine (pHelmIvP) and related tools for autonomous marine vehicles, except GUI applications.

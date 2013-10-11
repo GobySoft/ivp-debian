@@ -1,3 +1,15 @@
+moos-ivp (13-5+svn6026-0tes2~raring1) raring; urgency=low
+
+  * Added patch for MOOSGeodesy (uses proj.4) and other minor bug fixes
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Fri, 11 Oct 2013 14:31:53 -0400
+
+moos-ivp (13-5+svn6026-0tes1~raring1) raring; urgency=low
+
+  * Build for new MOOS (interim release)
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Fri, 11 Oct 2013 14:11:59 -0400
+
 moos-ivp (12-2+svn5787-0tes1~raring4) raring; urgency=low
 
   * Also needed some pthread links for i386
