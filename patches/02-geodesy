@@ -1,6 +1,6 @@
 --- a/ivp/src/CMakeLists.txt
 +++ b/ivp/src/CMakeLists.txt
-@@ -37,19 +37,6 @@
+@@ -37,25 +37,6 @@
  message("MOOS_INCLUDE_DIRS:" ${MOOS_INCLUDE_DIRS})
  message("+++++++++++++++++++++++++++++++++++++++++")
  
@@ -17,10 +17,16 @@
 -message("MOOSGeodesy_INCLUDE_DIRS:" ${MOOSGeodesy_INCLUDE_DIRS})
 -message("+++++++++++++++++++++++++++++++++++++++++")
 -
+-message("+++++++++++++++++++++++++++++++++++++++++")
+-message("MOOSGeodesy_LIB_PATH:" ${MOOSGeodesy_LIBRARY_PATH})
+-message("+++++++++++++++++++++++++++++++++++++++++")
+-
+-
+-
  
- 
- 
-@@ -113,6 +100,7 @@
+ #===============================================================================
+ # BUILDING IvP...
+@@ -117,6 +98,7 @@
     lib_behaviors-marine
     lib_bhvutil
     lib_genutil

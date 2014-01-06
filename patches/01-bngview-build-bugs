@@ -1,9 +1,9 @@
 --- a/ivp/src/app_bngview/CMakeLists.txt
 +++ b/ivp/src/app_bngview/CMakeLists.txt
-@@ -27,7 +27,6 @@
- ENDIF (${APPLE})
+@@ -28,7 +28,6 @@
  
  TARGET_LINK_LIBRARIES(bngview 
+   marineview
 -  ${MOOSGeodesy_LIBRARIES}
    helmivp
    behaviors
