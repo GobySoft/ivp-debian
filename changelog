@@ -1,3 +1,9 @@
+moos-ivp (13-5+svn6064-0tes1~precise1) precise; urgency=low
+
+  * New upstream for BHV_Rubberband changes
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Mon, 06 Jan 2014 14:36:15 -0500
+
 moos-ivp (13-5+svn6026-0tes2~raring1) raring; urgency=low
 
   * Added patch for MOOSGeodesy (uses proj.4) and other minor bug fixes

@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 
 UPSTREAM_LAST_RELEASE = 13-5
-UPSTREAM_REVISION_SPEC = 
+UPSTREAM_REVISION_SPEC = -r 6064
 UPSTREAM_REPOSITORY = https://oceanai.mit.edu/svn/moos-ivp-aro/trunk
 get-orig-source:
 	$(eval UPSTREAM_REVISION := $(shell svn info $(UPSTREAM_REVISION_SPEC) $(UPSTREAM_REPOSITORY) | grep Revision | sed 's/Revision: //'))
