@@ -1,3 +1,9 @@
+moos-ivp (13-5+svn6256-0tes1~ubuntu14.04.1) trusty; urgency=low
+
+  * New upstream
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Tue, 25 Mar 2014 15:46:50 -0400
+
 moos-ivp (13-5+svn6064-0tes1~precise1) precise; urgency=low
 
   * New upstream for BHV_Rubberband changes
