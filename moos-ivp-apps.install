@@ -3,13 +3,16 @@ usr/bin/alogclip
 usr/bin/alogeff
 usr/bin/aloggrep
 usr/bin/aloghelm
+usr/bin/alogiter
 usr/bin/alogrm
 usr/bin/alogscan
 usr/bin/alogsort
+usr/bin/GenBehavior
 usr/bin/gen_hazards
 usr/bin/GenMOOSApp
 usr/bin/GenMOOSApp_AppCasting
 usr/bin/iSay
+usr/bin/mykill
 usr/bin/nsplug
 usr/bin/pBasicContactMgr
 usr/bin/pEchoVar
@@ -17,7 +20,6 @@ usr/bin/pHelmIvP
 usr/bin/pHostInfo
 usr/bin/pMarinePID
 usr/bin/pNodeReporter
-usr/bin/pSafetyRetreat
 usr/bin/pSearchGrid
 usr/bin/pXRelay
 usr/bin/uFldBeaconRangeSensor
@@ -35,10 +37,10 @@ usr/bin/uFldScope
 usr/bin/uFldShoreBroker
 usr/bin/uFldWrapDetect
 usr/bin/uHelmScope
+usr/bin/uLoadWatch
 usr/bin/uMAC
 usr/bin/uPokeDB
 usr/bin/uProcessWatch
-usr/bin/uSimCurrent
 usr/bin/uSimMarine
 usr/bin/uTermCommand
 usr/bin/uTimerScript
