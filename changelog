@@ -1,3 +1,15 @@
+moos-ivp (14.7.1+svn6584-0~tes2~ubuntu14.04.1) trusty; urgency=medium
+
+  * Change to MOOSGeodesy symlink to correctly make it after files are installed
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Wed, 13 Aug 2014 17:19:10 -0400
+
+moos-ivp (14.7.1+svn6584-0~tes1~ubuntu14.04.1) trusty; urgency=medium
+
+  * New upstream release
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Wed, 13 Aug 2014 16:22:40 -0400
+
 moos-ivp (13-5+svn6256-0tes1~ubuntu14.04.1) trusty; urgency=low
 
   * New upstream

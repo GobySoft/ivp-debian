@@ -1,0 +1,27 @@
+--- a/ivp/src/CMakeLists.txt
++++ b/ivp/src/CMakeLists.txt
+@@ -37,14 +37,10 @@
+ # FINDING MOOSGeodesy' HEADERS AND LIBRARIES...  
+ #===============================================================================
+ # moos - http://www.robots.ox.ac.uk/~mobile/MOOS/wiki/pmwiki.php            
+-find_package(MOOSGeodesy)
+-include_directories(${MOOSGeodesy_INCLUDE_DIRS})
+-link_directories(${MOOSGeodesy_LIBRARY_PATH})
+ 
+-message("+++++++++++++++++++++++++++++++++++++++++")
+-message("MOOSGeodesy_INCLUDE_DIRS:" ${MOOSGeodesy_INCLUDE_DIRS})
+-message("MOOSGeodesy_LIBRARY_PATH:" ${MOOSGeodesy_LIBRARY_PATH})
+-message("+++++++++++++++++++++++++++++++++++++++++")
++add_subdirectory(../../MOOS/MOOSGeodesy ${CMAKE_BINARY_DIR}/MOOSGeodesy)
++include_directories(../../MOOS/MOOSGeodesy/libMOOSGeodesy/include)
++
+ 
+ #===============================================================================
+ # BUILDING IvP...
+@@ -287,3 +283,6 @@
+ 
+ install(DIRECTORY ${IVP_INC_DIRECTORY}/ DESTINATION ${CMAKE_INSTALL_PREFIX}/include
+   FILES_MATCHING REGEX .*\\.h)
++
++install(CODE "EXECUTE_PROCESS(COMMAND ln -sf ${CMAKE_INSTALL_PREFIX}/include/MOOS/libMOOSGeodesy/MOOSGeodesy.h ivp/MOOSGeodesy.h WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}/include)")
++
