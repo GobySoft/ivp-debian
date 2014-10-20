@@ -1,6 +1,6 @@
 --- a/ivp/src/CMakeLists.txt
 +++ b/ivp/src/CMakeLists.txt
-@@ -37,14 +37,10 @@
+@@ -37,14 +37,12 @@
  # FINDING MOOSGeodesy' HEADERS AND LIBRARIES...  
  #===============================================================================
  # moos - http://www.robots.ox.ac.uk/~mobile/MOOS/wiki/pmwiki.php            
@@ -15,13 +15,15 @@
 +add_subdirectory(../../MOOS/MOOSGeodesy ${CMAKE_BINARY_DIR}/MOOSGeodesy)
 +include_directories(../../MOOS/MOOSGeodesy/libMOOSGeodesy/include)
 +
++
++
  
  #===============================================================================
  # BUILDING IvP...
-@@ -287,3 +283,6 @@
+@@ -287,3 +285,6 @@
  
  install(DIRECTORY ${IVP_INC_DIRECTORY}/ DESTINATION ${CMAKE_INSTALL_PREFIX}/include
    FILES_MATCHING REGEX .*\\.h)
 +
-+install(CODE "EXECUTE_PROCESS(COMMAND ln -sf ${CMAKE_INSTALL_PREFIX}/include/MOOS/libMOOSGeodesy/MOOSGeodesy.h ivp/MOOSGeodesy.h WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}/include)")
-+
++add_custom_command(OUTPUT GeodesyLink COMMAND /bin/ln -s -f ../MOOS/libMOOSGeodesy/MOOSGeodesy.h MOOSGeodesy.h WORKING_DIRECTORY ${IVP_INC_DIRECTORY}/ivp)
++add_custom_target(geo_link ALL DEPENDS GeodesyLink)
