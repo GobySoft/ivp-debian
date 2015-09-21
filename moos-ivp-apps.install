@@ -1,12 +1,13 @@
 usr/bin/alogcheck
 usr/bin/alogclip
-usr/bin/alogeff
 usr/bin/aloggrep
 usr/bin/aloghelm
 usr/bin/alogiter
 usr/bin/alogrm
 usr/bin/alogscan
 usr/bin/alogsort
+usr/bin/alogsplit
+usr/bin/bhv2graphviz
 usr/bin/GenBehavior
 usr/bin/gen_hazards
 usr/bin/GenMOOSApp
@@ -15,6 +16,7 @@ usr/bin/iSay
 usr/bin/mykill
 usr/bin/nsplug
 usr/bin/pBasicContactMgr
+usr/bin/pDeadManPost
 usr/bin/pEchoVar
 usr/bin/pHelmIvP
 usr/bin/pHostInfo

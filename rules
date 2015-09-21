@@ -1,8 +1,8 @@
 #!/usr/bin/make -f
 
-UPSTREAM_LAST_RELEASE = 14.7.1
+UPSTREAM_LAST_RELEASE = 15.5
 UPSTREAM_REVISION_SPEC = 
-UPSTREAM_REPOSITORY = https://oceanai.mit.edu/svn/moos-ivp-aro/releases/moos-ivp-14.7.1
+UPSTREAM_REPOSITORY = https://oceanai.mit.edu/svn/moos-ivp-aro/releases/moos-ivp-$(UPSTREAM_LAST_RELEASE)
 get-orig-source:
 	$(eval UPSTREAM_REVISION := $(shell svn info $(UPSTREAM_REVISION_SPEC) $(UPSTREAM_REPOSITORY) | grep Revision | sed 's/Revision: //'))
 	$(eval UPSTREAM_VERSION := $(UPSTREAM_LAST_RELEASE)+svn$(UPSTREAM_REVISION))

@@ -1,3 +1,9 @@
+moos-ivp (15.5+svn7360-0~tes1~ubuntu14.04.1) trusty; urgency=medium
+
+  * New release
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Mon, 21 Sep 2015 16:04:58 -0400
+
 moos-ivp (14.7.1+svn6584-0~tes3~ubuntu14.04.1) trusty; urgency=medium
 
   * Fixed install omitted proj_api.h symlink and try to create MOOSGeodesy symlink correctly

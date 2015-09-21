@@ -4,8 +4,6 @@ usr/bin/geoview
 usr/bin/gzaicview
 usr/bin/pMarineViewer
 usr/bin/uFunctionVis
-usr/bin/uLogView
-usr/bin/uLogViewHelm
-usr/bin/uLogViewIPF
 usr/bin/uMACView
+usr/bin/uPlotViewer
 usr/bin/vzaicview
