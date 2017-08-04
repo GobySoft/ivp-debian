@@ -1,3 +1,21 @@
+moos-ivp (15.5+svn7396-0~tes3~ubuntu12.04.1) precise; urgency=medium
+
+  * Updated to use -fPIC for all architectures
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Tue, 10 May 2016 12:55:34 -0400
+
+moos-ivp (15.5+svn7396-0~tes2~ubuntu16.04.1) xenial; urgency=medium
+
+  * -fPIC
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Fri, 18 Dec 2015 09:10:18 -0800
+
+moos-ivp (15.5+svn7396-0~tes1~ubuntu12.04.1) precise; urgency=medium
+
+  * Update for changes to libhenrik_util
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Fri, 18 Dec 2015 08:51:55 -0800
+
 moos-ivp (15.5+svn7360-0~tes1~squeeze1) squeeze; urgency=medium
 
   * New release

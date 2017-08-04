@@ -20,7 +20,7 @@
  
  #===============================================================================
  # BUILDING IvP...
-@@ -287,3 +285,6 @@
+@@ -321,3 +319,6 @@
  
  install(DIRECTORY ${IVP_INC_DIRECTORY}/ DESTINATION ${CMAKE_INSTALL_PREFIX}/include
    FILES_MATCHING REGEX .*\\.h)
