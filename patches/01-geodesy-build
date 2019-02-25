@@ -1,12 +1,14 @@
---- a/ivp/src/CMakeLists.txt
-+++ b/ivp/src/CMakeLists.txt
-@@ -37,14 +37,12 @@
+Index: moos-ivp-17.7+svn7870/ivp/src/CMakeLists.txt
+===================================================================
+--- moos-ivp-17.7+svn7870.orig/ivp/src/CMakeLists.txt
++++ moos-ivp-17.7+svn7870/ivp/src/CMakeLists.txt
+@@ -51,14 +51,12 @@ message("+++++++++++++++++++++++++++++++
  # FINDING MOOSGeodesy' HEADERS AND LIBRARIES...  
  #===============================================================================
  # moos - http://www.robots.ox.ac.uk/~mobile/MOOS/wiki/pmwiki.php            
 -find_package(MOOSGeodesy)
 -include_directories(${MOOSGeodesy_INCLUDE_DIRS})
--link_directories(${MOOSGeodesy_LIBRARY_PATH})
+-#link_directories(${MOOSGeodesy_LIBRARY_PATH})
  
 -message("+++++++++++++++++++++++++++++++++++++++++")
 -message("MOOSGeodesy_INCLUDE_DIRS:" ${MOOSGeodesy_INCLUDE_DIRS})
@@ -20,7 +22,7 @@
  
  #===============================================================================
  # BUILDING IvP...
-@@ -321,3 +319,6 @@
+@@ -363,3 +361,6 @@ endforeach()
  
  install(DIRECTORY ${IVP_INC_DIRECTORY}/ DESTINATION ${CMAKE_INSTALL_PREFIX}/include
    FILES_MATCHING REGEX .*\\.h)

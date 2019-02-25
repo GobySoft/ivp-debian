@@ -1,3 +1,21 @@
+moos-ivp (17.7+svn7870-0~tes3~ubuntu14.04.1) trusty; urgency=medium
+
+  * Rebuild for core-moos USE_ASYNC change.
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Tue, 21 Nov 2017 13:13:14 -0500
+
+moos-ivp (17.7+svn7870-0~tes2~ubuntu16.04.1) xenial; urgency=medium
+
+  * Added new apps to install files
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Fri, 04 Aug 2017 16:54:46 -0400
+
+moos-ivp (17.7+svn7870-0~tes1~ubuntu14.04.1) trusty; urgency=medium
+
+  * New upstream release
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Fri, 04 Aug 2017 16:42:48 -0400
+
 moos-ivp (15.5+svn7396-0~tes3~ubuntu12.04.1) precise; urgency=medium
 
   * Updated to use -fPIC for all architectures

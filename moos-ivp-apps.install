@@ -47,3 +47,8 @@ usr/bin/uSimMarine
 usr/bin/uTermCommand
 usr/bin/uTimerScript
 usr/bin/uXMS
+usr/bin/uQueryDB
+usr/bin/pEvalLoiter
+usr/bin/alogcd
+usr/bin/alogeplot
+usr/bin/alogpare

@@ -1,0 +1,13 @@
+Index: moos-ivp-17.7+svn7870/ivp/src/CMakeLists.txt
+===================================================================
+--- moos-ivp-17.7+svn7870.orig/ivp/src/CMakeLists.txt
++++ moos-ivp-17.7+svn7870/ivp/src/CMakeLists.txt
+@@ -23,6 +23,8 @@ ELSE()
+   REMOVE_DEFINITIONS(-D_USE_UNIQUE_PTR)
+ ENDIF()
+ 
++SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
++
+ #===============================================================================
+ # FINDING MOOS' HEADERS AND LIBRARIES...
+ #===============================================================================
