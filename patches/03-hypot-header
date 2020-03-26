@@ -1,0 +1,13 @@
+Index: moos-ivp-19.8.1+svn8944/ivp/src/pObstacleMgr/ObstacleManager.cpp
+===================================================================
+--- moos-ivp-19.8.1+svn8944.orig/ivp/src/pObstacleMgr/ObstacleManager.cpp
++++ moos-ivp-19.8.1+svn8944/ivp/src/pObstacleMgr/ObstacleManager.cpp
+@@ -16,6 +16,8 @@
+ #include "XYFormatUtilsPoint.h"
+ #include "XYFormatUtilsPoly.h"
+ 
++#include <tgmath.h>
++
+ using namespace std;
+ 
+ //---------------------------------------------------------

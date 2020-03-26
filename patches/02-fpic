@@ -1,8 +1,8 @@
-Index: moos-ivp-17.7+svn7870/ivp/src/CMakeLists.txt
+Index: moos-ivp-19.8.1+svn8944/ivp/src/CMakeLists.txt
 ===================================================================
---- moos-ivp-17.7+svn7870.orig/ivp/src/CMakeLists.txt
-+++ moos-ivp-17.7+svn7870/ivp/src/CMakeLists.txt
-@@ -23,6 +23,8 @@ ELSE()
+--- moos-ivp-19.8.1+svn8944.orig/ivp/src/CMakeLists.txt
++++ moos-ivp-19.8.1+svn8944/ivp/src/CMakeLists.txt
+@@ -26,6 +26,8 @@ ELSE()
    REMOVE_DEFINITIONS(-D_USE_UNIQUE_PTR)
  ENDIF()
  

@@ -8,12 +8,8 @@ usr/bin/alogscan
 usr/bin/alogsort
 usr/bin/alogsplit
 usr/bin/bhv2graphviz
-usr/bin/GenBehavior
 usr/bin/gen_hazards
-usr/bin/GenMOOSApp
-usr/bin/GenMOOSApp_AppCasting
 usr/bin/iSay
-usr/bin/mykill
 usr/bin/nsplug
 usr/bin/pBasicContactMgr
 usr/bin/pDeadManPost
@@ -52,3 +48,9 @@ usr/bin/pEvalLoiter
 usr/bin/alogcd
 usr/bin/alogeplot
 usr/bin/alogpare
+usr/bin/pObstacleMgr
+usr/bin/uMemWatch
+usr/bin/alogtest
+usr/bin/alogcat
+usr/bin/pickpos
+usr/bin/manifest_test

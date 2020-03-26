@@ -1,3 +1,15 @@
+moos-ivp (19.8.1+svn8944-0~tes1~ubuntu18.04.1) bionic; urgency=medium
+
+  * New upstream release
+
+ -- Toby Schneider <toby@gobysoft.org>  Thu, 26 Mar 2020 11:46:06 -0400
+
+moos-ivp (17.7.2+svn8383-0~tes1~ubuntu14.04.1) trusty; urgency=medium
+
+  * New upstream release
+
+ -- Toby Schneider <tes.aubergine@gmail.com>  Mon, 25 Feb 2019 10:51:33 -0500
+
 moos-ivp (17.7+svn7870-0~tes3~ubuntu14.04.1) trusty; urgency=medium
 
   * Rebuild for core-moos USE_ASYNC change.
