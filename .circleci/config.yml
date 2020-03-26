@@ -225,7 +225,7 @@ jobs:
       - run:
           name: Install required packages
           command: |          
-            apt-get update && apt-get -y install cdbs wget     
+            apt-get update && apt-get -y install cdbs wget subversion
       - run:
           name: Get original source tarball
           command: |
