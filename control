@@ -11,7 +11,7 @@ Build-Depends: cdbs, debhelper (>= 7.0.50~),
                libfltk1.3-dev,
                libmoos10-dev,
                libproj-dev
-Standards-Version: 3.9.3
+Standards-Version: 3.9.7
 Section: science
 Homepage: http://moos-ivp.org
 
