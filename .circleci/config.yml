@@ -93,10 +93,6 @@ job-template-amd64: &job-template-amd64
     - run: &run-install-build-deps
         name: Install build dependencies
         command: |
-          # Bug in Bionic: if this file isn't removed, we get
-          # dpkg: error processing archive /var/cache/apt/archives/libstdc++-7-dev_7.3.0-27ubuntu1~18.04_arm64.deb (--unpack):
-          #   trying to overwrite shared '/usr/include/c++/7/ext/random', which is different from other instances of package libstdc++-7-dev:arm64
-          rm -f /usr/include/c++/7/ext/random && 
           cd ${SOURCE_WORKING_DIRECTORY} &&
           mk-build-deps -a ${TARGET_ARCH} --host-arch ${TARGET_ARCH} --build-arch amd64 -t "apt-get -y --no-install-recommends -o Debug::pkgProblemResolver=yes" -i "debian/control" &&
           rm -f ${SOURCE_WORKING_DIRECTORY}/*-build-deps*.deb
@@ -211,12 +207,6 @@ workflows:
 
       - release-upload:
           requires:
-            - armhf-stretch-build
-            - armhf-buster-build
-            - armhf-bionic-build
-            - armhf-focal-build
-            - armhf-xenial-build
-            # dput doesn't like being run in parallel
             - continuous-upload
 jobs:
   get-orig-source:
@@ -245,7 +235,7 @@ jobs:
             cd .. &&
             export NEWVERSION="$(echo /root/src/*.orig.tar.gz | sed 's/.*_\(.*\)\.orig\.tar\.gz/\1/')"
             COMMENT="Autobuild for version ${NEWVERSION}" &&
-            dch --newversion=${NEWVERSION}-7~DISTRORELEASEVERSION.1 -D DISTRORELEASECODENAME "${COMMENT}" &&
+            dch --newversion=${NEWVERSION}-8~DISTRORELEASEVERSION.1 -D DISTRORELEASECODENAME "${COMMENT}" &&
             cp debian/changelog /root/src
       - store_artifacts:
           path: /root/src
