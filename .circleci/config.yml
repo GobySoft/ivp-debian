@@ -31,9 +31,9 @@ environment-template-buster: &environment-template-buster
   DISTRO_RELEASE_CODENAME: "buster"
   DISTRO_RELEASE_VERSION: "debian10"
 
-environment-template-xenial: &environment-template-xenial
-  DISTRO_RELEASE_CODENAME: "xenial"
-  DISTRO_RELEASE_VERSION: "ubuntu16.04"
+environment-template-bullseye: &environment-template-bullseye
+  DISTRO_RELEASE_CODENAME: "bullseye"
+  DISTRO_RELEASE_VERSION: "debian11"
   
 environment-template-bionic: &environment-template-bionic
   DISTRO_RELEASE_CODENAME: "bionic"
@@ -50,8 +50,8 @@ docker-base-stretch: &docker-base-stretch
 docker-base-buster: &docker-base-buster
   - image: gobysoft/debian-build-base:10.1
 
-docker-base-xenial: &docker-base-xenial
-  - image: gobysoft/ubuntu-build-base:16.04.1
+docker-base-bullseye: &docker-base-bullseye
+  - image: gobysoft/debian-build-base:11.1
 
 docker-base-bionic: &docker-base-bionic
   - image: gobysoft/ubuntu-build-base:18.04.1
@@ -95,7 +95,7 @@ job-template-amd64: &job-template-amd64
         command: |
           cd ${SOURCE_WORKING_DIRECTORY} &&
           mk-build-deps -a ${TARGET_ARCH} --host-arch ${TARGET_ARCH} --build-arch amd64 -t "apt-get -y --no-install-recommends -o Debug::pkgProblemResolver=yes" -i "debian/control" &&
-          rm -f ${SOURCE_WORKING_DIRECTORY}/*-build-deps*.deb
+          rm -f ${SOURCE_WORKING_DIRECTORY}/*-build-deps*.*
     - run: &run-build-pkg
         name: Build the Debian package 
         command: |
@@ -151,59 +151,70 @@ workflows:
             - get-orig-source
       - arm64-stretch-build:
           requires:
-            - amd64-stretch-build
+            - get-orig-source
       - armhf-stretch-build:
           requires:
-            - arm64-stretch-build
+            - get-orig-source
           
       - amd64-buster-build:
           requires:
             - get-orig-source
       - arm64-buster-build:
           requires:
-            - amd64-buster-build
+            - get-orig-source
       - armhf-buster-build:
           requires:
-            - arm64-buster-build
-            
-      - amd64-xenial-build:
+            - get-orig-source
+
+      - amd64-bullseye-build:
           requires:
             - get-orig-source
-      - arm64-xenial-build:
+      - arm64-bullseye-build:
           requires:
-            - amd64-xenial-build
-      - armhf-xenial-build:
+            - get-orig-source
+      - armhf-bullseye-build:
           requires:
-            - arm64-xenial-build
+            - get-orig-source
+
             
       - amd64-bionic-build:
           requires:
             - get-orig-source
       - arm64-bionic-build:
           requires:
-            - amd64-bionic-build
+            - get-orig-source
       - armhf-bionic-build:
           requires:
-            - arm64-bionic-build
+            - get-orig-source
 
       - amd64-focal-build:
           requires:
             - get-orig-source
       - arm64-focal-build:
           requires:
-            - amd64-focal-build
+            - get-orig-source
       - armhf-focal-build:
           requires:
-            - arm64-focal-build
+            - get-orig-source
 
             
       - continuous-upload:
           requires:
+            - arm64-stretch-build
+            - arm64-buster-build
+            - arm64-bullseye-build
+            - arm64-bionic-build
+            - arm64-focal-build
+            - amd64-stretch-build
+            - amd64-buster-build
+            - amd64-bullseye-build
+            - amd64-bionic-build
+            - amd64-focal-build
             - armhf-stretch-build
             - armhf-buster-build
+            - armhf-bullseye-build
             - armhf-bionic-build
             - armhf-focal-build
-            - armhf-xenial-build
 
       - release-upload:
           requires:
@@ -235,7 +246,7 @@ jobs:
             cd .. &&
             export NEWVERSION="$(echo /root/src/*.orig.tar.gz | sed 's/.*_\(.*\)\.orig\.tar\.gz/\1/')"
             COMMENT="Autobuild for version ${NEWVERSION}" &&
-            dch --newversion=${NEWVERSION}-8~DISTRORELEASEVERSION.1 -D DISTRORELEASECODENAME "${COMMENT}" &&
+            dch --newversion=${NEWVERSION}-9~DISTRORELEASEVERSION.1 -D DISTRORELEASECODENAME "${COMMENT}" &&
             cp debian/changelog /root/src
       - store_artifacts:
           path: /root/src
@@ -287,26 +298,27 @@ jobs:
       <<: *environment-template-common
       <<: *environment-template-buster
       <<: *environment-template-armhf
-  amd64-xenial-build:
+
+  amd64-bullseye-build:
     <<: *job-template-amd64
-    docker: *docker-base-xenial
+    docker: *docker-base-bullseye
     environment:
       <<: *environment-template-common
-      <<: *environment-template-xenial
+      <<: *environment-template-bullseye
       <<: *environment-template-amd64
-  arm64-xenial-build: 
+  arm64-bullseye-build: 
     <<: *job-template-cross
-    docker: *docker-base-xenial
+    docker: *docker-base-bullseye
     environment:
       <<: *environment-template-common
-      <<: *environment-template-xenial
+      <<: *environment-template-bullseye
       <<: *environment-template-arm64
-  armhf-xenial-build: 
+  armhf-bullseye-build: 
     <<: *job-template-cross
-    docker: *docker-base-xenial
+    docker: *docker-base-bullseye
     environment:
       <<: *environment-template-common
-      <<: *environment-template-xenial
+      <<: *environment-template-bullseye
       <<: *environment-template-armhf
   amd64-bionic-build:
     <<: *job-template-amd64
