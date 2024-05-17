@@ -1,0 +1,28 @@
+Index: moos-ivp-22.8.1/ivp/src/CMakeLists.txt
+===================================================================
+--- moos-ivp-22.8.1.orig/ivp/src/CMakeLists.txt
++++ moos-ivp-22.8.1/ivp/src/CMakeLists.txt
+@@ -59,14 +59,8 @@ message("+++++++++++++++++++++++++++++++
+ # Part 3: FINDING MOOSGeodesy' HEADERS AND LIBRARIES...  
+ #=====================================================================
+ # moos - http://www.robots.ox.ac.uk/~mobile/MOOS/wiki/pmwiki.php            
+-find_package(MOOSGeodesy)
+-include_directories(${MOOSGeodesy_INCLUDE_DIRS})
+-#link_directories(${MOOSGeodesy_LIBRARY_PATH})
+-
+-message("+++++++++++++++++++++++++++++++++++++++++")
+-message("MOOSGeodesy_INCLUDE_DIRS:" ${MOOSGeodesy_INCLUDE_DIRS})
+-message("MOOSGeodesy_LIBRARY_PATH:" ${MOOSGeodesy_LIBRARY_PATH})
+-message("+++++++++++++++++++++++++++++++++++++++++")
++add_subdirectory(../../MOOS/MOOSGeodesy ${CMAKE_BINARY_DIR}/MOOSGeodesy)
++include_directories(../../MOOS/MOOSGeodesy/libMOOSGeodesy/include)
+ 
+ #=============================================================================
+ # Part 4: Set defaults and expose user build options GUI, MinRobot, UTM
+@@ -272,3 +266,6 @@ endforeach()
+ 
+ install(DIRECTORY ${IVP_INC_DIRECTORY}/ DESTINATION ${CMAKE_INSTALL_PREFIX}/include
+   FILES_MATCHING REGEX .*\\.h)
++
++add_custom_command(OUTPUT GeodesyLink COMMAND /bin/ln -s -f ../MOOS/libMOOSGeodesy/MOOSGeodesy.h MOOSGeodesy.h WORKING_DIRECTORY ${IVP_INC_DIRECTORY}/ivp)
++add_custom_target(geo_link ALL DEPENDS GeodesyLink)
