@@ -1,0 +1,39 @@
+Index: moos-ivp-22.8.1/ivp/src/dep_pBasicContactMgr/BasicContactMgr.cpp
+===================================================================
+--- moos-ivp-22.8.1.orig/ivp/src/dep_pBasicContactMgr/BasicContactMgr.cpp
++++ moos-ivp-22.8.1/ivp/src/dep_pBasicContactMgr/BasicContactMgr.cpp
+@@ -87,7 +87,7 @@ BasicContactMgr::BasicContactMgr()
+   m_alert_requests_received = 0;
+ 
+   // This app is deprecated. Suggest an alternative
+-  m_deprecated_alt = "pContactMgrV20";
++  reportRunWarning("Deprecated, suggested alternative: pContactMgrV20");
+ }
+ 
+ //---------------------------------------------------------
+Index: moos-ivp-22.8.1/ivp/src/dep_pMarinePID/MarinePID.cpp
+===================================================================
+--- moos-ivp-22.8.1.orig/ivp/src/dep_pMarinePID/MarinePID.cpp
++++ moos-ivp-22.8.1/ivp/src/dep_pMarinePID/MarinePID.cpp
+@@ -95,7 +95,7 @@ MarinePID::MarinePID()
+   m_reset_pch_i_new_desired = false;
+ 
+   // This app is deprecated. Suggest an alternative
+-  m_deprecated_alt = "pMarinePIDV22";
++  reportRunWarning("Deprecated, suggested alternative: pMarinePIDV22");
+ }
+ 
+ //--------------------------------------------------------------------
+Index: moos-ivp-22.8.1/ivp/src/dep_uSimMarine/USM_MOOSApp.cpp
+===================================================================
+--- moos-ivp-22.8.1.orig/ivp/src/dep_uSimMarine/USM_MOOSApp.cpp
++++ moos-ivp-22.8.1/ivp/src/dep_uSimMarine/USM_MOOSApp.cpp
+@@ -59,7 +59,7 @@ USM_MOOSApp::USM_MOOSApp()
+   m_thrust_mode_differential = false;
+ 
+   // This app is deprecated. Suggest an alternative
+-  m_deprecated_alt = "uSimMarineV22";
++  reportRunWarning("Deprecated, suggested alternative: uSimMarineV22");
+ }
+ 
+ //------------------------------------------------------------------------
