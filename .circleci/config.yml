@@ -22,38 +22,34 @@ environment-template-arm64: &environment-template-arm64
 environment-template-armhf: &environment-template-armhf
   TARGET_ARCH: "armhf"
   DEB_BUILD_OPTIONS: "parallel=4 nocheck"
-  
-environment-template-buster: &environment-template-buster
-  DISTRO_RELEASE_CODENAME: "buster"
-  DISTRO_RELEASE_VERSION: "debian10"
 
 environment-template-bullseye: &environment-template-bullseye
   DISTRO_RELEASE_CODENAME: "bullseye"
   DISTRO_RELEASE_VERSION: "debian11"
-  
-environment-template-bionic: &environment-template-bionic
-  DISTRO_RELEASE_CODENAME: "bionic"
-  DISTRO_RELEASE_VERSION: "ubuntu18.04"
-  
+
+environment-template-bookworm: &environment-template-bookworm
+  DISTRO_RELEASE_CODENAME: "bookworm"
+  DISTRO_RELEASE_VERSION: "debian12"
+
 environment-template-focal: &environment-template-focal
   DISTRO_RELEASE_CODENAME: "focal"
   DISTRO_RELEASE_VERSION: "ubuntu20.04"
-
 
 environment-template-jammy: &environment-template-jammy
   DISTRO_RELEASE_CODENAME: "jammy"
   DISTRO_RELEASE_VERSION: "ubuntu22.04"
 
+environment-template-noble: &environment-template-noble
+  DISTRO_RELEASE_CODENAME: "noble"
+  DISTRO_RELEASE_VERSION: "ubuntu24.04"
   
 ## Pre-declare Docker containers
-docker-base-buster: &docker-base-buster
-  - image: gobysoft/debian-build-base:10.1
 
 docker-base-bullseye: &docker-base-bullseye
   - image: gobysoft/debian-build-base:11.1
 
-docker-base-bionic: &docker-base-bionic
-  - image: gobysoft/ubuntu-build-base:18.04.1
+docker-base-bookworm: &docker-base-bookworm
+  - image: gobysoft/debian-build-base:12.1
 
 docker-base-focal: &docker-base-focal
   - image: gobysoft/ubuntu-build-base:20.04.1
@@ -61,17 +57,14 @@ docker-base-focal: &docker-base-focal
 docker-base-jammy: &docker-base-jammy
   - image: gobysoft/ubuntu-build-base:22.04.1
 
+docker-base-noble: &docker-base-noble
+  - image: gobysoft/ubuntu-build-base:24.04.1
+    
 ## Pre-declare job templates
 job-template-amd64: &job-template-amd64
   working_directory: /root/debian
   steps:
     - checkout
-    - run: &run-add-packages
-        name: Add packages.gobysoft.org sources.list
-        command: |
-          apt-get update && apt-get -y install dirmngr apt-transport-https && 
-          echo "deb http://packages.gobysoft.org/ubuntu/release/ ${DISTRO_RELEASE_CODENAME}/" >> /etc/apt/sources.list.d/gobysoft_release.list && 
-          apt-key adv --recv-key --keyserver keyserver.ubuntu.com 19478082E2F8D3FE || true
     - run: &run-update-apt
         name: Update apt packages
         command: apt-get update && apt-get dist-upgrade -y
@@ -135,10 +128,10 @@ job-template-amd64: &job-template-amd64
 job-template-cross: &job-template-cross
   <<: *job-template-amd64
 
-# base upload off Bionic build
+# base upload off noble build
 job-template-upload: &job-template-upload
   <<: *job-template-amd64
-  docker: *docker-base-bionic
+  docker: *docker-base-noble
   
 ## Begin actual config
 version: 2
@@ -148,76 +141,86 @@ workflows:
     jobs:
       - get-orig-source
           
-      - amd64-buster-build:
+      # - amd64-buster-build:
+      #     requires:
+      #       - get-orig-source
+      # - arm64-buster-build:
+      #     requires:
+      #       - get-orig-source
+      # - armhf-buster-build:
+      #     requires:
+      #       - get-orig-source
+
+      # - amd64-bullseye-build:
+      #     requires:
+      #       - get-orig-source
+      # - arm64-bullseye-build:
+      #     requires:
+      #       - get-orig-source
+      # - armhf-bullseye-build:
+      #     requires:
+      #       - get-orig-source
+
+      - amd64-bookworm-build:
           requires:
             - get-orig-source
-      - arm64-buster-build:
+      - arm64-bookworm-build:
           requires:
             - get-orig-source
-      - armhf-buster-build:
+      - armhf-bookworm-build:
           requires:
             - get-orig-source
 
-      - amd64-bullseye-build:
-          requires:
-            - get-orig-source
-      - arm64-bullseye-build:
-          requires:
-            - get-orig-source
-      - armhf-bullseye-build:
-          requires:
-            - get-orig-source
+      # - amd64-focal-build:
+      #     requires:
+      #       - get-orig-source
+      # - arm64-focal-build:
+      #     requires:
+      #       - get-orig-source
+      # - armhf-focal-build:
+      #     requires:
+      #       - get-orig-source
 
-            
-      - amd64-bionic-build:
-          requires:
-            - get-orig-source
-      - arm64-bionic-build:
-          requires:
-            - get-orig-source
-      - armhf-bionic-build:
-          requires:
-            - get-orig-source
+      # - amd64-jammy-build:
+      #     requires:
+      #       - get-orig-source
+      # - arm64-jammy-build:
+      #     requires:
+      #       - get-orig-source
+      # - armhf-jammy-build:
+      #     requires:
+      #       - get-orig-source
 
-      - amd64-focal-build:
-          requires:
-            - get-orig-source
-      - arm64-focal-build:
-          requires:
-            - get-orig-source
-      - armhf-focal-build:
-          requires:
-            - get-orig-source
 
-      - amd64-jammy-build:
+      - amd64-noble-build:
           requires:
             - get-orig-source
-      - arm64-jammy-build:
+      - arm64-noble-build:
           requires:
             - get-orig-source
-      - armhf-jammy-build:
+      - armhf-noble-build:
           requires:
             - get-orig-source
-
             
             
       - continuous-upload:
           requires:
-            - arm64-buster-build
-            - arm64-bullseye-build
-            - arm64-bionic-build
-            - arm64-focal-build
-            - arm64-jammy-build
-            - amd64-buster-build
-            - amd64-bullseye-build
-            - amd64-bionic-build
-            - amd64-focal-build
-            - amd64-jammy-build
-            - armhf-buster-build
-            - armhf-bullseye-build
-            - armhf-bionic-build
-            - armhf-focal-build
-            - armhf-jammy-build
+            # - arm64-bullseye-build
+            # - arm64-focal-build
+            # - arm64-jammy-build
+            # - amd64-buster-build
+            # - amd64-bullseye-build
+            # - amd64-focal-build
+            # - amd64-jammy-build
+            # - armhf-bullseye-build
+            # - armhf-focal-build
+            # - armhf-jammy-build
+            - amd64-bookworm-build
+            - armhf-bookworm-build
+            - arm64-bookworm-build
+            - amd64-noble-build
+            - armhf-noble-build
+            - arm64-noble-build
 
       - release-upload:
           requires:
@@ -225,10 +228,10 @@ workflows:
 jobs:
   get-orig-source:
     <<: *job-template-amd64
-    docker: *docker-base-jammy
+    docker: *docker-base-noble
     environment:
       <<: *environment-template-common
-      <<: *environment-template-jammy
+      <<: *environment-template-noble
       <<: *environment-template-amd64
     steps:
       - checkout
@@ -249,7 +252,7 @@ jobs:
             cd .. &&
             export NEWVERSION="$(echo /root/src/*.orig.tar.gz | sed 's/.*_\(.*\)\.orig\.tar\.gz/\1/')"
             COMMENT="Autobuild for version ${NEWVERSION}" &&
-            dch --newversion=${NEWVERSION}-10~DISTRORELEASEVERSION.1 -D DISTRORELEASECODENAME "${COMMENT}" &&
+            dch --newversion=${NEWVERSION}-1~DISTRORELEASEVERSION.1 -D DISTRORELEASECODENAME "${COMMENT}" &&
             cp debian/changelog /root/src
       - store_artifacts:
           path: /root/src
@@ -258,28 +261,6 @@ jobs:
           paths:
             - '*.tar.gz'
             - 'changelog'
-            
-  amd64-buster-build:
-    <<: *job-template-amd64
-    docker: *docker-base-buster
-    environment:
-      <<: *environment-template-common
-      <<: *environment-template-buster
-      <<: *environment-template-amd64
-  arm64-buster-build: 
-    <<: *job-template-cross
-    docker: *docker-base-buster
-    environment:
-      <<: *environment-template-common
-      <<: *environment-template-buster
-      <<: *environment-template-arm64
-  armhf-buster-build: 
-    <<: *job-template-cross
-    docker: *docker-base-buster
-    environment:
-      <<: *environment-template-common
-      <<: *environment-template-buster
-      <<: *environment-template-armhf
 
   amd64-bullseye-build:
     <<: *job-template-amd64
@@ -302,26 +283,27 @@ jobs:
       <<: *environment-template-common
       <<: *environment-template-bullseye
       <<: *environment-template-armhf
-  amd64-bionic-build:
+
+  amd64-bookworm-build:
     <<: *job-template-amd64
-    docker: *docker-base-bionic
+    docker: *docker-base-bookworm
     environment:
       <<: *environment-template-common
-      <<: *environment-template-bionic
+      <<: *environment-template-bookworm
       <<: *environment-template-amd64
-  arm64-bionic-build: 
+  arm64-bookworm-build: 
     <<: *job-template-cross
-    docker: *docker-base-bionic
+    docker: *docker-base-bookworm
     environment:
       <<: *environment-template-common
-      <<: *environment-template-bionic
+      <<: *environment-template-bookworm
       <<: *environment-template-arm64
-  armhf-bionic-build: 
+  armhf-bookworm-build: 
     <<: *job-template-cross
-    docker: *docker-base-bionic
+    docker: *docker-base-bookworm
     environment:
       <<: *environment-template-common
-      <<: *environment-template-bionic
+      <<: *environment-template-bookworm
       <<: *environment-template-armhf
 
   amd64-focal-build:
@@ -368,12 +350,36 @@ jobs:
       <<: *environment-template-jammy
       <<: *environment-template-armhf
 
+
+  amd64-noble-build:
+    <<: *job-template-amd64
+    docker: *docker-base-noble
+    environment:
+      <<: *environment-template-common
+      <<: *environment-template-noble
+      <<: *environment-template-amd64
+  arm64-noble-build: 
+    <<: *job-template-cross
+    docker: *docker-base-noble
+    environment:
+      <<: *environment-template-common
+      <<: *environment-template-noble
+      <<: *environment-template-arm64
+  armhf-noble-build: 
+    <<: *job-template-cross
+    docker: *docker-base-noble
+    environment:
+      <<: *environment-template-common
+      <<: *environment-template-noble
+      <<: *environment-template-armhf
+
+      
       
   continuous-upload:
     <<: *job-template-upload
     environment:
       <<: *environment-template-common
-      <<: *environment-template-bionic
+      <<: *environment-template-noble
       <<: *environment-template-amd64
       UPLOAD_DESTINATION: "gobysoft-continuous"
     steps: &steps-upload
@@ -402,7 +408,7 @@ jobs:
     <<: *job-template-upload
     environment:
       <<: *environment-template-common
-      <<: *environment-template-bionic
+      <<: *environment-template-noble
       <<: *environment-template-amd64
       UPLOAD_DESTINATION: "gobysoft-release"
     steps: *steps-upload
