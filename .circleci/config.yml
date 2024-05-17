@@ -65,6 +65,12 @@ job-template-amd64: &job-template-amd64
   working_directory: /root/debian
   steps:
     - checkout
+    - run: &run-add-packages
+        name: Add packages.gobysoft.org sources.list
+        command: |
+          apt-get update && apt-get -y install dirmngr apt-transport-https && 
+          echo "deb http://packages.gobysoft.org/ubuntu/release/ ${DISTRO_RELEASE_CODENAME}/" >> /etc/apt/sources.list.d/gobysoft_release.list && 
+          apt-key adv --recv-key --keyserver keyserver.ubuntu.com 19478082E2F8D3FE || true
     - run: &run-update-apt
         name: Update apt packages
         command: apt-get update && apt-get dist-upgrade -y
