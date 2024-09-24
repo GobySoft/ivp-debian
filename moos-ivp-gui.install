@@ -4,6 +4,7 @@ usr/bin/geoview
 usr/bin/pMarineViewer
 usr/bin/uFunctionVis
 usr/bin/uMACView
+usr/bin/uCommand
 usr/bin/uPlotViewer
 usr/bin/zaic_hdg
 usr/bin/zaic_hleq

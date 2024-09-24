@@ -1,7 +1,7 @@
-Index: moos-ivp-22.8.1/ivp/src/CMakeLists.txt
+Index: moos-ivp-24.8/ivp/src/CMakeLists.txt
 ===================================================================
---- moos-ivp-22.8.1.orig/ivp/src/CMakeLists.txt
-+++ moos-ivp-22.8.1/ivp/src/CMakeLists.txt
+--- moos-ivp-24.8.orig/ivp/src/CMakeLists.txt
++++ moos-ivp-24.8/ivp/src/CMakeLists.txt
 @@ -33,6 +33,8 @@ ELSE()
    REMOVE_DEFINITIONS(-D_USE_UNIQUE_PTR)
  ENDIF()

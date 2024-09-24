@@ -1,0 +1,37 @@
+Index: moos-ivp-24.8/ivp/src/pHelmIvP/HelmIvP.cpp
+===================================================================
+--- moos-ivp-24.8.orig/ivp/src/pHelmIvP/HelmIvP.cpp
++++ moos-ivp-24.8/ivp/src/pHelmIvP/HelmIvP.cpp
+@@ -315,7 +315,7 @@ bool HelmIvP::OnNewMail(MOOSMSG_LIST &Ne
+   // level. The current state of the comms policy is a member variable
+   // of this class (superclass). Pass along this value to the
+   // info_buffer.
+-  m_info_buffer->setValue("COMMS_POLICY", commsPolicy(), m_curr_time);
++  m_info_buffer->setValue("COMMS_POLICY", "open", m_curr_time);
+   
+   if(helmStatus() == "STANDBY")
+     checkForTakeOver();
+@@ -678,7 +678,7 @@ bool HelmIvP::buildReport()
+     return(true);
+   }
+ 
+-  m_msgs << "  Comms Policy: " << commsPolicy()  << endl; 
++  //  m_msgs << "  Comms Policy: " << commsPolicy()  << endl;
+ 
+   list<string> summary = m_helm_report.formattedSummary(m_curr_time);
+   list<string>::iterator p;
+Index: moos-ivp-24.8/ivp/src/pMarineViewer/PMV_MOOSApp.cpp
+===================================================================
+--- moos-ivp-24.8.orig/ivp/src/pMarineViewer/PMV_MOOSApp.cpp
++++ moos-ivp-24.8/ivp/src/pMarineViewer/PMV_MOOSApp.cpp
+@@ -653,10 +653,6 @@ void PMV_MOOSApp::handleAppCastRequestin
+ 
+   double appcast_request_interval = m_appcast_request_interval;
+   double appcast_dur = 3;
+-  if(commsPolicy() != "open") {
+-    appcast_request_interval *= 5;
+-    appcast_dur *= 4;
+-  }
+     
+   if(real_elapsed_time >= appcast_request_interval) {
+     m_appcast_last_req_time = m_curr_time;

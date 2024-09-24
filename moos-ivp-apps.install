@@ -10,7 +10,9 @@ usr/bin/aloggrep
 usr/bin/aloghelm
 usr/bin/alogiter
 usr/bin/alogload
+usr/bin/alogmhash
 usr/bin/alogpare
+usr/bin/alogpick
 usr/bin/alogrm
 usr/bin/alogscan
 usr/bin/alogsort
@@ -19,6 +21,7 @@ usr/bin/alogtest
 usr/bin/alogtm
 usr/bin/bhv2graphviz
 usr/bin/iSay
+usr/bin/iBlinkStick
 usr/bin/nsplug
 usr/bin/pBasicContactMgr
 usr/bin/pContactMgrV20
@@ -34,7 +37,6 @@ usr/bin/pObstacleMgr
 usr/bin/pRealm
 usr/bin/pSearchGrid
 usr/bin/pXRelay
-usr/bin/uCommand
 usr/bin/uFldBeaconRangeSensor
 usr/bin/uFldCollisionDetect
 usr/bin/uFldCollObDetect
@@ -59,3 +61,7 @@ usr/bin/uSimMarineV22
 usr/bin/uTermCommand
 usr/bin/uTimerScript
 usr/bin/uXMS
+usr/bin/pMapMarkers
+usr/bin/pMissionHash
+usr/bin/uFldDelve
+usr/bin/uSimMarineV23

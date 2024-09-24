@@ -1,8 +1,8 @@
-Index: moos-ivp-22.8.1/ivp/src/pObstacleMgr/ObstacleManager.cpp
+Index: moos-ivp-24.8/ivp/src/pObstacleMgr/ObstacleManager.cpp
 ===================================================================
---- moos-ivp-22.8.1.orig/ivp/src/pObstacleMgr/ObstacleManager.cpp
-+++ moos-ivp-22.8.1/ivp/src/pObstacleMgr/ObstacleManager.cpp
-@@ -18,6 +18,8 @@
+--- moos-ivp-24.8.orig/ivp/src/pObstacleMgr/ObstacleManager.cpp
++++ moos-ivp-24.8/ivp/src/pObstacleMgr/ObstacleManager.cpp
+@@ -32,6 +32,8 @@
  #include "XYFormatUtilsPoint.h"
  #include "XYFormatUtilsPoly.h"
  

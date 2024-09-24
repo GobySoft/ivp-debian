@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 
-UPSTREAM_LAST_RELEASE = 22.8.1
+UPSTREAM_LAST_RELEASE = 24.8
 UPSTREAM_REVISION_SPEC = 
 UPSTREAM_REPOSITORY = https://oceanai.mit.edu/svn/moos-ivp-aro/releases/moos-ivp-$(UPSTREAM_LAST_RELEASE)
 get-orig-source:

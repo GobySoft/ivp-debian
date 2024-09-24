@@ -1,7 +1,7 @@
-Index: moos-ivp-22.8.1/ivp/src/CMakeLists.txt
+Index: moos-ivp-24.8/ivp/src/CMakeLists.txt
 ===================================================================
---- moos-ivp-22.8.1.orig/ivp/src/CMakeLists.txt
-+++ moos-ivp-22.8.1/ivp/src/CMakeLists.txt
+--- moos-ivp-24.8.orig/ivp/src/CMakeLists.txt
++++ moos-ivp-24.8/ivp/src/CMakeLists.txt
 @@ -59,14 +59,8 @@ message("+++++++++++++++++++++++++++++++
  # Part 3: FINDING MOOSGeodesy' HEADERS AND LIBRARIES...  
  #=====================================================================
@@ -19,7 +19,7 @@ Index: moos-ivp-22.8.1/ivp/src/CMakeLists.txt
  
  #=============================================================================
  # Part 4: Set defaults and expose user build options GUI, MinRobot, UTM
-@@ -272,3 +266,6 @@ endforeach()
+@@ -277,3 +271,6 @@ endforeach()
  
  install(DIRECTORY ${IVP_INC_DIRECTORY}/ DESTINATION ${CMAKE_INSTALL_PREFIX}/include
    FILES_MATCHING REGEX .*\\.h)
