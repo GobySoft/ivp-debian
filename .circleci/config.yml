@@ -252,6 +252,8 @@ jobs:
       - run:
           name: Get original source tarball
           command: |
+            export LANG="en_US.utf8"
+            update-locale
             cd .. &&
             make -f debian/rules get-orig-source &&
             mkdir -p /root/src &&
