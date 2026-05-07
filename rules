@@ -1,27 +1,31 @@
 #!/usr/bin/make -f
 
-UPSTREAM_LAST_RELEASE = 24.8
-UPSTREAM_REVISION_SPEC = 
-UPSTREAM_REPOSITORY = https://oceanai.mit.edu/svn/moos-ivp-aro/releases/moos-ivp-$(UPSTREAM_LAST_RELEASE)
-get-orig-source:
-	$(eval UPSTREAM_REVISION := $(shell svn info $(UPSTREAM_REVISION_SPEC) $(UPSTREAM_REPOSITORY) | grep "Last Changed Rev: " | sed 's/Last Changed Rev: //'))
-	$(eval UPSTREAM_VERSION := $(UPSTREAM_LAST_RELEASE)+svn$(UPSTREAM_REVISION))
+UPSTREAM_VERSION = 24.8.1
+UPSTREAM_TAG = v$(UPSTREAM_VERSION)
+UPSTREAM_REPOSITORY = https://github.com/moos-ivp/moos-ivp
 
-	svn export -q $(UPSTREAM_REVISION_SPEC) $(UPSTREAM_REPOSITORY) moos-ivp-$(UPSTREAM_VERSION)
-	tar cfz moos-ivp_$(UPSTREAM_VERSION).orig.tar.gz moos-ivp-$(UPSTREAM_VERSION)
+get-orig-source:
+	set -e; \
+	UPSTREAM_ARCHIVE=moos-ivp-$(UPSTREAM_TAG).tar.gz; \
+	wget -q -O $$UPSTREAM_ARCHIVE $(UPSTREAM_REPOSITORY)/archive/refs/tags/$(UPSTREAM_TAG).tar.gz; \
+	EXTRACTED_DIR=$$(tar tf $$UPSTREAM_ARCHIVE | head -1 | cut -f1 -d/); \
+	tar xfz $$UPSTREAM_ARCHIVE; \
+	rm -f $$UPSTREAM_ARCHIVE; \
+	if [ "$$EXTRACTED_DIR" != "moos-ivp-$(UPSTREAM_VERSION)" ]; then mv $$EXTRACTED_DIR moos-ivp-$(UPSTREAM_VERSION); fi; \
+	tar cfz moos-ivp_$(UPSTREAM_VERSION).orig.tar.gz moos-ivp-$(UPSTREAM_VERSION); \
 	rm -rf moos-ivp-$(UPSTREAM_VERSION)
 
+%:
+	dh $@ --buildsystem=cmake --sourcedirectory=ivp/src
 
-include /usr/share/cdbs/1/rules/debhelper.mk
-include /usr/share/cdbs/1/class/cmake.mk
+override_dh_auto_configure:
+	dh_auto_configure -- -DIVP_BUILD_GUI_CODE=ON -DCMAKE_CXX_FLAGS="$(CXXFLAGS)"
 
 
 # Add here any variable or target overrides you need.
 
-DEB_SRCDIR=ivp/src
-DEB_CMAKE_EXTRA_FLAGS= -DIVP_BUILD_GUI_CODE=ON
-CXXFLAGS=-Wno-error=format-security
-DEB_BUILD_PARALLEL = true
+export DEB_BUILD_PARALLEL = true
+export CXXFLAGS = -Wno-error=format-security
 
-CC=$(DEB_HOST_GNU_TYPE)-gcc
-CXX=$(DEB_HOST_GNU_TYPE)-g++
+export CC = $(DEB_HOST_GNU_TYPE)-gcc
+export CXX = $(DEB_HOST_GNU_TYPE)-g++
